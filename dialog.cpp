@@ -7,7 +7,7 @@
 #include <QTextEdit>
 #include <QDebug>
 #include <QTextStream>
-
+#include <QDir>
 //########################################################################################################
 Dialog::Dialog(QWidget *parent)
     : QDialog(parent)
@@ -18,11 +18,11 @@ Dialog::Dialog(QWidget *parent)
 // Теперь это надо в цикле файлы с 1 по 117
 // Надо записать число в название
 QString str;
-  //  for (int bmp_number = 1; bmp_number < 117; ++bmp_number)
+   for (int bmp_number = 1; bmp_number < 117; ++bmp_number)
     {
     ui->textEdit->clear();
-  // str = QString::number(bmp_number);
-    str ="1";
+  str = QString::number(bmp_number);
+   // str ="1";
     // Открываем файл изображения .bmp
     QFile file("/home/viktor/Загрузки/imageye2/scale_peyzaji/black-white/"+str+".bmp");
     if (!file.open(QFile::ReadOnly)) {
@@ -69,8 +69,29 @@ if (file2.open(QFile::ReadOnly | QFile::Text)) {
 } 
 //########################################################################################################
 // Теперь надо в файл     
-    
-    
+ 
+    // Создаем папку
+    QDir dir;
+    QString dirPath = "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/peyzaji_2/"+str; // заменить на нужный путь
+    if (!dir.exists(dirPath)) {
+        dir.mkpath(dirPath);
+    }
+
+    // Получаем текст из QTextEdit
+    QTextEdit* textEdit = ui->textEdit; // заменить на указатель на ваш QTextEdit
+    QString text = textEdit->toPlainText();
+
+    // Создаем файл в папке
+    QString filePath = dirPath + "/neurons_and_signal.txt"; // заменить на нужное имя файла
+    QFile file3(filePath);
+    if (file3.open(QFile::WriteOnly | QFile::Text)) {
+        QTextStream out(&file3);
+        out << text;
+        file3.close();
+    } else {
+        qDebug() << "Error: unable to open file for writing";
+    }   
+//########################################################################################################    
     } // for файлы
 } // Dialog::Dialog(QWidget *parent)
 
