@@ -56,7 +56,7 @@ if (file2.open(QFile::ReadOnly | QFile::Text)) {
         lineNumber++;
         if (lineNumber >= 100 && lineNumber <= 250) {
             bool ok;
-            int number = line.toInt(&ok);
+            int number = line.toLongLong(&ok);
             if (ok) {
                 ui->textEdit->append(QString::number(number) //+ "\n"
                 );
@@ -72,7 +72,7 @@ if (file2.open(QFile::ReadOnly | QFile::Text)) {
  
     // Создаем папку
     QDir dir;
-    QString dirPath = "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/peyzaji_2/"+str; // заменить на нужный путь
+    QString dirPath = "/home/viktor/Загрузки/Data/Images/chars74k_png_Fnt_Sample1_black-white/300/txt/"+str; // заменить на нужный путь
     if (!dir.exists(dirPath)) {
         dir.mkpath(dirPath);
     }
