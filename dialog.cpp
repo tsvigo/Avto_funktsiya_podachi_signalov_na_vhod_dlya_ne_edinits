@@ -18,13 +18,13 @@ Dialog::Dialog(QWidget *parent)
 // Теперь это надо в цикле файлы с 1 по 117
 // Надо записать число в название
 QString str;
-   for (int bmp_number = 1; bmp_number < 117; ++bmp_number)
+   for (int bmp_number = 1; bmp_number < 148; ++bmp_number)
     {
     ui->textEdit->clear();
   str = QString::number(bmp_number);
    // str ="1";
     // Открываем файл изображения .bmp
-    QFile file("/home/viktor/Загрузки/imageye2/scale_peyzaji/black-white/"+str+".bmp");
+    QFile file("/home/viktor/Загрузки/Data/Images/chars74k_png_Fnt_Sample1_black-white/300/"+str+".bmp");
     if (!file.open(QFile::ReadOnly)) {
         qDebug() << "Ошибка открытия файла";
      //   return 1;
