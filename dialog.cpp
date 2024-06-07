@@ -18,7 +18,7 @@ Dialog::Dialog(QWidget *parent)
 // Теперь это надо в цикле файлы с 1 по 117
 // Надо записать число в название
 QString str;
-   for (int bmp_number = 1; bmp_number < 148; ++bmp_number)
+   for (int bmp_number = 1; bmp_number < 301; ++bmp_number)
     {
     ui->textEdit->clear();
   str = QString::number(bmp_number);
