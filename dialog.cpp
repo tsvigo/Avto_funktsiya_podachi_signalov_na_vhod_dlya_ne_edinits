@@ -24,7 +24,7 @@ QString str;
   str = QString::number(bmp_number);
    // str ="1";
     // Открываем файл изображения .bmp
-    QFile file("/home/viktor/Загрузки/Data/Images/chars74k_png_Fnt_Sample1_black-white/300/"+str+".bmp");
+    QFile file("/home/viktor/Загрузки/data/none/300/masshtab/black-white/"+str+".bmp");
     if (!file.open(QFile::ReadOnly)) {
         qDebug() << "Ошибка открытия файла";
      //   return 1;
@@ -72,7 +72,7 @@ if (file2.open(QFile::ReadOnly | QFile::Text)) {
  
     // Создаем папку
     QDir dir;
-    QString dirPath = "/home/viktor/Загрузки/Data/Images/chars74k_png_Fnt_Sample1_black-white/300/txt/"+str; // заменить на нужный путь
+    QString dirPath = "/home/viktor/Загрузки/data/none/300/masshtab/black-white/"+str; // заменить на нужный путь
     if (!dir.exists(dirPath)) {
         dir.mkpath(dirPath);
     }
